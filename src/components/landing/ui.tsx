@@ -32,13 +32,15 @@ export function Cta({ size = "lg", className, children, ...rest }: CtaProps) {
   );
 }
 
-export function ProductPhoto({ className }: { className?: string }) {
+export function ProductPhoto({ className, priority = false }: { className?: string; priority?: boolean }) {
   return (
     <img
       src={productPhoto.url}
       alt="Árvore de Natal decorada com estrela vermelha com a sigla PT no topo, foto do presidente Lula no centro e três placas vermelhas com as frases Lula Presidente, Democracia Sempre e Por um Brasil Melhor"
       width={256}
       height={384}
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : "auto"}
       decoding="async"
       className={className}
     />
