@@ -37,15 +37,6 @@ export function Header() {
 export function Hero() {
   return (
     <section id="inicio" className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-5 pb-16 pt-10 text-center md:pb-24 md:pt-14">
-      <figure className="relative order-first">
-        <div aria-hidden className="absolute inset-0 -z-10 scale-125 rounded-full bg-accent/20 blur-3xl" />
-        <div className="rounded-[2rem] border border-border bg-card/50 p-5 backdrop-blur sm:p-6">
-          <ProductPhoto className="w-56 sm:w-64 md:w-72" />
-        </div>
-        <figcaption className="mt-4 text-xs font-semibold uppercase tracking-widest text-accent">
-          Demonstração real da árvore
-        </figcaption>
-      </figure>
       <div className="mx-auto max-w-3xl">
         <p className="inline-block rounded-full border border-border bg-card/60 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-accent">
           Edição Natal 2026 · Black Friday
@@ -57,7 +48,18 @@ export function Hero() {
           A Árvore Natalina da Esperança, para quem votou no Lula celebrar as festas com esperança, união e orgulho.
         </p>
         <div className="mt-7 flex justify-center"><Price /></div>
-        <div className="mt-8 flex justify-center">
+      </div>
+      <figure className="relative order-first">
+        <div aria-hidden className="absolute inset-0 -z-10 scale-125 rounded-full bg-accent/20 blur-3xl" />
+        <div className="rounded-[2rem] border border-border bg-card/50 p-5 backdrop-blur sm:p-6">
+          <ProductPhoto className="w-56 sm:w-64 md:w-72" />
+        </div>
+        <figcaption className="mt-4 text-xs font-semibold uppercase tracking-widest text-accent">
+          Demonstração real da árvore
+        </figcaption>
+      </figure>
+      <div>
+        <div className="flex justify-center">
           <Cta>Quero minha árvore</Cta>
         </div>
         <p className="mt-5 flex items-center justify-center gap-2 text-sm text-muted-foreground">
