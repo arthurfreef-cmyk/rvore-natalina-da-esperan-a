@@ -49,7 +49,7 @@ export function Hero() {
         </p>
         <div className="mt-7 flex justify-center"><Price /></div>
       </div>
-      <figure className="relative order-first">
+      <figure className="relative">
         <div aria-hidden className="absolute inset-0 -z-10 scale-125 rounded-full bg-accent/20 blur-3xl" />
         <div className="rounded-[2rem] border border-border bg-card/50 p-5 backdrop-blur sm:p-6">
           <ProductPhoto className="w-56 sm:w-64 md:w-72" />
