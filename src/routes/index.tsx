@@ -64,13 +64,15 @@ function ProductPhoto({ className = "" }: { className?: string }) {
 
 function HeroPhoto() {
   return (
-    <div className="relative mx-auto w-fit">
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 scale-125 rounded-full bg-accent/20 blur-3xl"
-      />
-      <ProductPhoto className="w-64 drop-shadow-[0_25px_45px_rgba(0,0,0,0.55)] sm:w-72 md:w-80" />
-      <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full border border-border bg-card/90 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-accent backdrop-blur">
+    <div className="mx-auto w-fit text-center">
+      <div className="relative">
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 scale-125 rounded-full bg-accent/20 blur-3xl"
+        />
+        <ProductPhoto className="w-64 drop-shadow-[0_25px_45px_rgba(0,0,0,0.55)] sm:w-72 md:w-80" />
+      </div>
+      <span className="mt-5 inline-block rounded-full border border-border bg-card/90 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-accent backdrop-blur">
         Foto real do produto
       </span>
     </div>
