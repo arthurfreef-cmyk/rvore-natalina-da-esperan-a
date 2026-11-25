@@ -197,7 +197,7 @@ function CheckoutPage() {
           <aside className="rounded-3xl border border-border bg-card/80 p-5 shadow-xl backdrop-blur sm:p-6 lg:sticky lg:top-6">
             <h2 className="font-display text-xl font-bold">Resumo do pedido</h2>
             <div className="mt-5 flex items-center gap-4">
-              <div className="grid size-24 shrink-0 place-items-center overflow-hidden rounded-2xl bg-background/60 p-2"><ProductPhoto className="h-full w-auto object-contain" /></div>
+              <div className="grid size-24 shrink-0 place-items-center overflow-hidden rounded-2xl bg-background/60 p-2"><ProductPhoto priority className="h-full w-auto object-contain" /></div>
               <div className="min-w-0"><p className="font-bold leading-snug">Árvore Natalina da Esperança</p><p className="mt-1 text-xs text-muted-foreground">Edição especial · 1 unidade</p><p className="mt-2 text-sm text-muted-foreground line-through">R$ 197,00</p><p className="font-display text-2xl font-black text-gold">R$ 97,00</p></div>
             </div>
             <div className="my-5 space-y-3 border-y border-border py-4 text-sm">
