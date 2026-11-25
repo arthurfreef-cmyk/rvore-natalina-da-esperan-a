@@ -2,7 +2,7 @@ import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import productPhoto from "@/assets/arvore-natal-lula.webp.asset.json";
 
-export const BUY = "#comprar";
+export const BUY = "/checkout";
 
 export const NAV = [
   { href: "#demonstracao", label: "Demonstração" },
@@ -15,7 +15,7 @@ interface CtaProps extends ComponentProps<"a"> {
   size?: "sm" | "lg";
 }
 
-/** Botão de compra padrão: sempre leva à âncora de compra existente. */
+/** Botão de compra padrão: direciona para o checkout dedicado. */
 export function Cta({ size = "lg", className, children, ...rest }: CtaProps) {
   return (
     <a
