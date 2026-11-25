@@ -16,10 +16,22 @@ interface CtaProps extends ComponentProps<"a"> {
 }
 
 /** Botão de compra padrão: direciona para o checkout dedicado. */
-export function Cta({ size = "lg", className, children, ...rest }: CtaProps) {
+export function Cta({ size = "lg", className, children, onClick, ...rest }: CtaProps) {
   return (
     <a
       href={BUY}
+      onClick={(event) => {
+        onClick?.(event);
+        if (typeof window !== "undefined" && (window as any).fbq) {
+          (window as any).fbq("track", "AddToCart", {
+            content_name: "Árvore Natalina da Esperança",
+            content_type: "product",
+            content_ids: ["arvore-natalina-esperanca"],
+            currency: "BRL",
+            value: 97,
+          });
+        }
+      }}
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-full bg-primary font-bold text-primary-foreground shadow-lg transition duration-200 hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",
         size === "lg" ? "px-8 py-4 text-base sm:text-lg" : "px-5 py-2.5 text-sm",
