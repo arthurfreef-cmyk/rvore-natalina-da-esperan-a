@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -115,10 +116,72 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <noscript>
+          <img height="1" width="1" style={{ display: "none" }} src="https://www.facebook.com/tr?id=1547265663897015&ev=PageView&noscript=1" alt="" />
+        </noscript>
         <Scripts />
       </body>
     </html>
   );
+}
+
+declare global {
+  interface Window {
+    fbq?: ((...args: any[]) => void) & { callMethod?: (...args: any[]) => void; queue?: any[]; push?: (...args: any[]) => void; loaded?: boolean; version?: string };
+    _fbq?: Window["fbq"];
+  }
+}
+
+function MetaPixelTracker() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (!window.fbq) {
+      const fbq = ((...args: any[]) => {
+        if (fbq.callMethod) fbq.callMethod(...args);
+        else (fbq.queue ??= []).push(args);
+      }) as NonNullable<Window["fbq"]>;
+      fbq.push = fbq;
+      fbq.loaded = true;
+      fbq.version = "2.0";
+      fbq.queue = [];
+      window.fbq = fbq;
+      window._fbq = fbq;
+
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "https://connect.facebook.net/en_US/fbevents.js";
+      document.head.appendChild(script);
+      fbq("init", "1547265663897015");
+    }
+
+    window.fbq("track", "PageView");
+
+    if (pathname === "/") {
+      window.fbq("track", "ViewContent", {
+        content_name: "Árvore Natalina da Esperança",
+        content_type: "product",
+        content_ids: ["arvore-natalina-esperanca"],
+        currency: "BRL",
+        value: 97,
+      });
+    }
+
+    if (pathname === "/checkout") {
+      window.fbq("track", "InitiateCheckout", {
+        content_name: "Árvore Natalina da Esperança",
+        content_type: "product",
+        content_ids: ["arvore-natalina-esperanca"],
+        num_items: 1,
+        currency: "BRL",
+        value: 97,
+      });
+    }
+  }, [pathname]);
+
+  return null;
 }
 
 function RootComponent() {
@@ -126,6 +189,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <MetaPixelTracker />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
