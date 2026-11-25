@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const FLAKES = Array.from({ length: 18 }, (_, i) => ({
+const FLAKES = Array.from({ length: 8 }, (_, i) => ({
   id: `f${i}`, left: (i * 37) % 100, dur: 10 + ((i * 7) % 10), delay: -((i * 3) % 12), size: 3 + (i % 3) * 2,
 }));
 
