@@ -36,37 +36,34 @@ export function Header() {
 
 export function Hero() {
   return (
-    <section id="inicio" className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-12 md:grid-cols-[1.1fr_0.9fr] md:pb-24 md:pt-20">
-      <div className="text-center md:text-left">
+    <section id="inicio" className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-5 pb-16 pt-10 text-center md:pb-24 md:pt-14">
+      <figure className="relative order-first">
+        <div aria-hidden className="absolute inset-0 -z-10 scale-125 rounded-full bg-accent/20 blur-3xl" />
+        <div className="rounded-[2rem] border border-border bg-card/50 p-5 backdrop-blur sm:p-6">
+          <ProductPhoto className="w-56 sm:w-64 md:w-72" />
+        </div>
+        <figcaption className="mt-4 text-xs font-semibold uppercase tracking-widest text-accent">
+          Demonstração real da árvore
+        </figcaption>
+      </figure>
+      <div className="mx-auto max-w-3xl">
         <p className="inline-block rounded-full border border-border bg-card/60 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-accent">
           Edição Natal 2026 · Black Friday
         </p>
         <h1 className="mt-6 font-display text-4xl font-black leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl">
           O Natal de quem <span className="italic text-gold">fez o L</span> merece uma árvore à altura
         </h1>
-        <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground md:mx-0">
+        <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
           A Árvore Natalina da Esperança, para quem votou no Lula celebrar as festas com esperança, união e orgulho.
         </p>
-        <div className="mt-8 flex justify-center md:justify-start"><Price /></div>
-        <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row md:justify-start">
+        <div className="mt-7 flex justify-center"><Price /></div>
+        <div className="mt-8 flex justify-center">
           <Cta>Quero minha árvore</Cta>
-          <a href="#demonstracao" className="text-sm font-semibold text-accent underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring">
-            Ver demonstração
-          </a>
         </div>
-        <p className="mt-5 flex items-center justify-center gap-2 text-sm text-muted-foreground md:justify-start">
+        <p className="mt-5 flex items-center justify-center gap-2 text-sm text-muted-foreground">
           <Truck aria-hidden className="size-4 text-accent" /> Frete grátis para todo o Brasil
         </p>
       </div>
-      <figure className="relative mx-auto w-fit">
-        <div aria-hidden className="absolute inset-0 -z-10 scale-125 rounded-full bg-accent/20 blur-3xl" />
-        <div className="rounded-[2rem] border border-border bg-card/50 p-6 backdrop-blur">
-          <ProductPhoto className="w-56 sm:w-64 md:w-72" />
-        </div>
-        <figcaption className="mt-4 text-center text-xs font-semibold uppercase tracking-widest text-accent">
-          Demonstração real da árvore
-        </figcaption>
-      </figure>
     </section>
   );
 }
