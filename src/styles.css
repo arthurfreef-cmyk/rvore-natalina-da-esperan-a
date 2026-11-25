@@ -76,20 +76,20 @@
 
 :root {
   --radius: 1rem;
-  --background: oklch(0.2 0.06 25);
+  --background: oklch(0.19 0.04 160);
   --foreground: oklch(0.97 0.02 85);
-  --card: oklch(0.26 0.08 25);
+  --card: oklch(0.24 0.045 160);
   --card-foreground: oklch(0.97 0.02 85);
-  --popover: oklch(0.26 0.08 25);
+  --popover: oklch(0.24 0.045 160);
   --popover-foreground: oklch(0.97 0.02 85);
   --primary: oklch(0.56 0.22 27);
   --primary-foreground: oklch(0.98 0.01 85);
-  --secondary: oklch(0.38 0.1 150);
+  --secondary: oklch(0.3 0.06 160);
   --secondary-foreground: oklch(0.97 0.02 85);
-  --muted: oklch(0.3 0.06 25);
-  --muted-foreground: oklch(0.8 0.04 70);
+  --muted: oklch(0.28 0.05 160);
+  --muted-foreground: oklch(0.84 0.03 80);
   --accent: oklch(0.82 0.15 85);
-  --accent-foreground: oklch(0.2 0.06 25);
+  --accent-foreground: oklch(0.2 0.04 160);
   --destructive: oklch(0.6 0.24 27);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.82 0.15 85 / 25%);
@@ -101,7 +101,8 @@
   --sidebar-primary: oklch(0.56 0.22 27); --sidebar-primary-foreground: oklch(0.98 0 0);
   --sidebar-accent: oklch(0.3 0.06 25); --sidebar-accent-foreground: oklch(0.97 0.02 85);
   --sidebar-border: oklch(0.82 0.15 85 / 25%); --sidebar-ring: oklch(0.82 0.15 85);
-  --gradient-hero: radial-gradient(ellipse at top, oklch(0.42 0.2 27), oklch(0.2 0.06 25) 70%);
+  --gradient-hero: radial-gradient(ellipse 80% 60% at 70% 20%, oklch(0.36 0.12 27 / 70%), transparent 70%), radial-gradient(ellipse at bottom left, oklch(0.27 0.06 160), oklch(0.17 0.04 160) 70%);
+  --gradient-wine: linear-gradient(160deg, oklch(0.4 0.16 25), oklch(0.26 0.1 22));
   --gradient-gold: linear-gradient(135deg, oklch(0.88 0.13 90), oklch(0.72 0.15 70));
   --shadow-glow: 0 0 60px -10px oklch(0.82 0.15 85 / 60%);
 }
@@ -125,3 +126,7 @@
 @keyframes twinkle { 50% { opacity: .3; } }
 @utility animate-snow { animation: snow linear infinite; }
 @utility animate-twinkle { animation: twinkle 2s ease-in-out infinite; }
+@utility bg-wine { background: var(--gradient-wine); }
+@media (prefers-reduced-motion: reduce) { .animate-snow { display: none; } html { scroll-behavior: auto; } }
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 7rem; }
